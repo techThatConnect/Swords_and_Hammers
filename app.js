@@ -11,18 +11,25 @@ let worklist = document.getElementById("workerList")
 
 function populate() {
   hp.innerHTML = "HP: " + game.active.hp;
-  console.log(game.active)
   gold.innerHTML = "Gold: " + game.active.gold
+  while(worklist.firstChild){
+    worklist.removeChild(worklist.firstChild);
+  }
   for(unit of game.active.workers){
     let li = document.createElement("li")
     let br = document.createElement("br")
     li.innerHTML = unit.name
+    li.setAttribute("id" , unit.name)
     let makegold = document.createElement("button")
     makegold.innerHTML = "make gold"
-    makegold.setAttribute("onclick" , workerGold(game.active , unit.name))
+makegold.setAttribute("id" , unit.name + 'gold')
+
+
+    
+    
     let livecastle = document.createElement("button")
     livecastle.innerHTML = "live in the castle"
-    livecastle.setAttribute("onclick" , workerSac(game.active, unit.name))
+   // livecastle.setAttribute("onclick" , workerSac(game.active, unit.name))
     workerList.appendChild(li)
     li.appendChild(br)
     

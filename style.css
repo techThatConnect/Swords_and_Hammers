@@ -34,14 +34,14 @@ input[type='checkbox'] { display: none; }
   transition: max-height .25s ease-in-out; 
 } 
 
-.toggle:checked + .lbl-toggle + .collapsible-content { max-height: 350px; } 
+.toggle:checked + .lbl-toggle + .collapsible-content { max-height: fit-content; } 
 
 .toggle:checked+.lbl-toggle { border-bottom-right-radius: 0; border-bottom-left-radius: 0; } 
 
 .collapsible-content .content-inner { 
   background: rgba(100, 0, 0, .2); 
   border-bottom: 1px solid rgba(255, 0, 0, .45); border-bottom-left-radius: 7px; border-bottom-right-radius: 7px; padding: 2em } 
-  
+
 .collapsible-content p { margin-bottom: 0; }
 
 li {

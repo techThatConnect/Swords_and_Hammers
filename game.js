@@ -317,15 +317,18 @@ let playerOne = {
   
   
   fighterAttack(playerTwo, 'brogan')
-  
+  buildWorker(playerOne, 'dude')
+  buildWorker(playerOne, 'man')
+  buildWorker(playerOne, 'bro')
+  console.log(playerOne.workers)
   
   function runtest() {
-  buildWorker(playerOne, 'john')
+  
   battlePrep(playerOne)
   battlePrep(playerTwo)
     battle()
    
-    populate()
+  populate()
     
     
    }

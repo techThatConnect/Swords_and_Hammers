@@ -4,24 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
+    <link rel="stylesheet" href="/style.css">
+    <script  src="/game.js"></script>
+    <script src="/app.js"></script>
+</head> 
 <body>
     <button onclick="runtest()">test</button>
 
-<div>
-  
-  <div class="castle">
-    <button class="openCastle">Castle</button>
-    <p>
-    HP:
-      <br>
-    Gold:
-      <br>
-      ...
-       </p>
-    <div class="subCard">
-      content you cant see
-    <div>
-  </div>
+    <h1 id="playerName">Player One</h1>
+
+    <div class="wrap-collabsible"> <input id="collapsible3" class="toggle" type="checkbox"> <label for="collapsible3" class="lbl-toggle" tabindex="0">
+      Castle
+      
+      </label><div class="collapsible-content"><div class="content-inner">
+      <p id="hp">
+        HP:</p>
+      <p id="gold">
+        Gold:
+      </p>
+      <ul>
+        name of unit
+        <input id="unitName" type="text" value="test">
+        
+        <li id="selectWorkRow">Worker <button id="selectWork" onclick="selectWork()">select</button>
+          <p id="showNameWork"></p>
+        </li>
+        
+        <li id="selectFightRow">Fighter <button id="selectFight" onclick="selectFight()">select</button>
+          <p id="showNameFight"></p>
+        </li>
+      </ul>
+      </div></div></div>
+    
+    <br>
+    
+    <div class="wrap-collabsible"> <input id="collapsible4" class="toggle" type="checkbox"> <label for="collapsible4" class="lbl-toggle" tabindex="0">
+      Workers
+      
+      </label><div class="collapsible-content"><div id="workerSelect" class="content-inner">
+      <ul id="workerList">
+        <li>
+          <p>John</p>
+          
+          <button>Make Gold</button>
+          <button>Live in the Castle</button>
+        </li>
+        <li>
+          <p>Sid</p>
+          <button>Make Gold</button>
+          <button>Live in the Castle</button>
+        </li>
+      </ul>  
+      </div></div></div>
+    
+    <br>
+    
+    <div class="wrap-collabsible"> <input id="collapsible5" class="toggle" type="checkbox"> <label for="collapsible5" class="lbl-toggle" tabindex="0">
+      fighters
+      
+      </label><div class="collapsible-content"><div class="content-inner"><p> Careen fluke jolly boat keel topgallant Admiral of the Black barkadeer sloop poop deck salmagundi. Avast red ensign parley clap of thunder no prey, no pay killick stern clipper execution dock splice the main brace. Grog blossom yardarm bilge water marooned cog wherry tackle aye Shiver me timbers come about.</p></div></div></div>
 </body>
 </html>

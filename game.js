@@ -250,7 +250,7 @@ let playerOne = {
     //if this possative its bcause playerOne as more attackers than playertwo has defenders
     if(p1damage >= 0){
     playerTwo.hp = playerTwo.hp - p1damage
-      let deaths = 0
+      let deaths = 0 
     for(let a = 0; a < playerTwo.fighters.length; a++){
       if(playerTwo.fighters[a].action == 'defend'){
       playerTwo.graveyard.push(playerTwo.fighters[a])
@@ -284,7 +284,7 @@ let playerOne = {
         }
      
       for(let b = 0; b < deaths; b++) {
-  
+  if(playerTwo.fighters.length > 0) {
         if(playerTwo.fighters[b].action == 'attack'){
   
       playerTwo.graveyard.push(playerTwo.fighters[b])
@@ -294,7 +294,7 @@ let playerOne = {
          
   
           }
-  
+        }
         }
       
     }
@@ -305,18 +305,14 @@ let playerOne = {
     }
   
     
-  buildFighter(playerTwo, 'brogan')
-  buildFighter(playerTwo, 'john')
+  buildFighter(playerOne, 'brogan')
+  buildFighter(playerOne, 'john')
   buildFighter(playerOne, 'bob')
   
   
    
   
-  fighterDefend(playerOne,'bob')
   
-  
-  
-  fighterAttack(playerTwo, 'brogan')
   buildWorker(playerOne, 'dude')
   buildWorker(playerOne, 'man')
   buildWorker(playerOne, 'bro')
@@ -326,10 +322,10 @@ let playerOne = {
   
   battlePrep(playerOne)
   battlePrep(playerTwo)
-    battle()
+    
    
   populate()
     
-    
+  battle()  
    }
   

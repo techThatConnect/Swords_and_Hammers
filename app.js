@@ -47,7 +47,46 @@ function populate(){
     
     li.appendChild(livecastle)
     li.appendChild(select)    
-                                                  }}
+                                                  }
+
+ for(let i = 0; i < game.active.fighters.length; i++){
+    let li2 = document.createElement("li")
+    let br = document.createElement("br")
+    li2.innerHTML = game.active.fighters[i].name
+    let select = document.createElement("p")
+    let attacks = document.createElement("button")
+    let defend = document.createElement("button")
+    attacks.innerHTML = "Attack"
+ defend.innerHTML = "Defend"
+    
+    attacks.addEventListener("click" , function () {
+      fighterAttack (game.active, game.active.fighters[i].name)
+      console.log(game.active) 
+       attacks.disabled = true
+       defend.disabled = true
+      select.innerHTML = game.active.fighters[i].action
+                                                    }  )
+    
+        defend.addEventListener("click" , function () {
+          fighterDefend (game.active,  game.active.fighters[i].name) 
+      console.log(game.active)   
+      attacks.disabled = true
+      defend.disabled = true
+     select.innerHTML = game.active.fighters[i].action
+                                                    }  )
+     
+      fightList.appendChild(li2)
+    li2.appendChild(br)
+    
+    li2.appendChild(attacks)
+    
+    li2.appendChild(defend)
+    li2.appendChild(select)    
+  }  
+  
+
+                                    
+}
 
 function selectWork() {
   let a = namer.value

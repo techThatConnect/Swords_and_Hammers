@@ -9,35 +9,45 @@ let fightSel = document.getElementById('selectFight')
 let namer = document.getElementById("unitName")
 let worklist = document.getElementById("workerList")
 
-function populate() {
+function populate(){
   hp.innerHTML = "HP: " + game.active.hp;
+  
   gold.innerHTML = "Gold: " + game.active.gold
-  while(worklist.firstChild){
-    worklist.removeChild(worklist.firstChild);
-  }
-  for(unit of game.active.workers){
+  
+  for(let i = 0; i < game.active.workers.length; i++){
     let li = document.createElement("li")
     let br = document.createElement("br")
-    li.innerHTML = unit.name
-    li.setAttribute("id" , unit.name)
+    li.innerHTML = game.active.workers[i].name
+    let select = document.createElement("p")
+    let livecastle = document.createElement("button")
     let makegold = document.createElement("button")
     makegold.innerHTML = "make gold"
-makegold.setAttribute("id" , unit.name + 'gold')
-
-
+  livecastle.innerHTML = "live in the castle"
     
+    makegold.addEventListener("click" , function () {
+      workerGold(game.active , game.active.workers[i].name)  
+      console.log(game.active) 
+       makegold.disabled = true
+          livecastle.disabled = true
+      select.innerHTML = game.active.workers[i].action
+                                                    }  )
     
-    let livecastle = document.createElement("button")
-    livecastle.innerHTML = "live in the castle"
-   // livecastle.setAttribute("onclick" , workerSac(game.active, unit.name))
-    workerList.appendChild(li)
+        livecastle.addEventListener("click" , function () {
+      workerSac(game.active , game.active.workers[i].name)  
+      console.log(game.active)   
+          makegold.disabled = true
+          livecastle.disabled = true
+          select.innerHTML = game.active.workers[i].action
+                                                    }  )
+     
+      workerList.appendChild(li)
     li.appendChild(br)
     
     li.appendChild(makegold)
     
     li.appendChild(livecastle)
-    }
-  }
+    li.appendChild(select)    
+                                                  }}
 
 function selectWork() {
   let a = namer.value

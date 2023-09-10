@@ -8,12 +8,9 @@ let workSel = document.getElementById('selectWork')
 let fightSel = document.getElementById('selectFight')
 let namer = document.getElementById("unitName")
 let worklist = document.getElementById("workerList")
+let fightlist = document.getElementById("fightList")
 
-function populate(){
-  hp.innerHTML = "HP: " + game.active.hp;
-  
-  gold.innerHTML = "Gold: " + game.active.gold
-  
+function popWork() {
   for(let i = 0; i < game.active.workers.length; i++){
     let li = document.createElement("li")
     let br = document.createElement("br")
@@ -48,11 +45,58 @@ function populate(){
     li.appendChild(livecastle)
     li.appendChild(select)    
                                                   }
+}
 
- for(let i = 0; i < game.active.fighters.length; i++){
+function popFight() {
+for(let t = 0; t < game.active.fighters.length; t++){
+  let list = document.createElement("li")
+  let br = document.createElement("br")
+  list.innerHTML = game.active.fighters[t].name
+  let selected = document.createElement("p")
+  let attack = document.createElement("button")
+  let defend = document.createElement("button")
+  attack.innerHTML = 'Attack'
+  defend.innerHTML = 'Defend'
+
+  attack.addEventListener("click" , function(){
+    fighterAttack (game.active ,  game.active.fighters[t].name)
+    console.log(game.active) 
+    attack.disabled = true
+    defend.disabled = true
+    selected.innerHTML = game.active.fighters[t].action
+  })
+
+  defend.addEventListener("click" , function(){
+    fighterDefend(game.active , game.active.fighters[t].name)
+    console.log(game.active) 
+    attack.disabled = true
+    defend.disabled = true
+    selected.innerHTML = game.active.fighters[t].action
+  })
+  
+  fightlist.appendChild(list)
+
+  list.appendChild(br)
+  list.appendChild(attack)
+  list.appendChild(defend)
+  list.appendChild(selected)
+
+}
+}
+
+function populate(){
+  hp.innerHTML = "HP: " + game.active.hp;
+  
+  gold.innerHTML = "Gold: " + game.active.gold
+  
+ popWork()
+ popFight()
+
+/*
+ for(let T = 0; T < game.active.fighters.length; T++){
     let li2 = document.createElement("li")
     let br = document.createElement("br")
-    li2.innerHTML = game.active.fighters[i].name
+    li2.innerHTML = game.active.fighters[T].name
     let select = document.createElement("p")
     let attacks = document.createElement("button")
     let defend = document.createElement("button")
@@ -60,19 +104,19 @@ function populate(){
  defend.innerHTML = "Defend"
     
     attacks.addEventListener("click" , function () {
-      fighterAttack (game.active, game.active.fighters[i].name)
+      fighterAttack (game.active, game.active.fighters[T].name)
       console.log(game.active) 
        attacks.disabled = true
        defend.disabled = true
-      select.innerHTML = game.active.fighters[i].action
+      select.innerHTML = game.active.fighters[T].action
                                                     }  )
     
         defend.addEventListener("click" , function () {
-          fighterDefend (game.active,  game.active.fighters[i].name) 
+          fighterDefend (game.active,  game.active.fighters[T].name) 
       console.log(game.active)   
       attacks.disabled = true
       defend.disabled = true
-     select.innerHTML = game.active.fighters[i].action
+     select.innerHTML = game.active.fighters[T].action
                                                     }  )
      
       fightList.appendChild(li2)
@@ -84,7 +128,7 @@ function populate(){
     li2.appendChild(select)    
   }  
   
-
+*/
                                     
 }
 

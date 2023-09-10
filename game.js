@@ -316,7 +316,7 @@ let playerOne = {
   buildWorker(playerOne, 'dude')
   buildWorker(playerOne, 'man')
   buildWorker(playerOne, 'bro')
-  console.log(playerOne.workers)
+  console.log(playerOne , game.active)
   
   function runtest() {
   
@@ -325,7 +325,7 @@ let playerOne = {
     
    
   populate()
-    
-  battle()  
+  console.log(playerOne , game.active) 
+
    }
   

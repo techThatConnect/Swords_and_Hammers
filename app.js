@@ -9,6 +9,7 @@ let fightSel = document.getElementById('selectFight')
 let namer = document.getElementById("unitName")
 let worklist = document.getElementById("workerList")
 let fightlist = document.getElementById("fightList")
+let playername = document.getElementById("playerName")
 
 function popWork() {
   for(let i = 0; i < game.active.workers.length; i++){
@@ -88,48 +89,23 @@ function populate(){
   hp.innerHTML = "HP: " + game.active.hp;
   
   gold.innerHTML = "Gold: " + game.active.gold
-  
+
+  document.getElementById("selectFight").disabled = false;
+  document.getElementById("selectWork").disabled = false;
+  namer.disabled = false; 
+  document.getElementById("selectWorkRow").style.removeProperty('background')
+  document.getElementById("selectWorkRow").style.color = "black"
+  document.getElementById("showNameWork").innerHTML = ''
+  document.getElementById("selectFightRow").style.removeProperty('background')
+document.getElementById("selectFightRow").style.color = "black"
+document.getElementById("showNameFight").innerHTML = ''
  popWork()
  popFight()
+                                   
+}
 
-/*
- for(let T = 0; T < game.active.fighters.length; T++){
-    let li2 = document.createElement("li")
-    let br = document.createElement("br")
-    li2.innerHTML = game.active.fighters[T].name
-    let select = document.createElement("p")
-    let attacks = document.createElement("button")
-    let defend = document.createElement("button")
-    attacks.innerHTML = "Attack"
- defend.innerHTML = "Defend"
-    
-    attacks.addEventListener("click" , function () {
-      fighterAttack (game.active, game.active.fighters[T].name)
-      console.log(game.active) 
-       attacks.disabled = true
-       defend.disabled = true
-      select.innerHTML = game.active.fighters[T].action
-                                                    }  )
-    
-        defend.addEventListener("click" , function () {
-          fighterDefend (game.active,  game.active.fighters[T].name) 
-      console.log(game.active)   
-      attacks.disabled = true
-      defend.disabled = true
-     select.innerHTML = game.active.fighters[T].action
-                                                    }  )
-     
-      fightList.appendChild(li2)
-    li2.appendChild(br)
-    
-    li2.appendChild(attacks)
-    
-    li2.appendChild(defend)
-    li2.appendChild(select)    
-  }  
+function summary() {
   
-*/
-                                    
 }
 
 function selectWork() {
@@ -141,6 +117,7 @@ function selectWork() {
   if(b.building != "none") {
   document.getElementById("selectFight").disabled = true;
   document.getElementById("selectWork").disabled = true
+  namer.disabled = true;
   document.getElementById("selectWorkRow").style.background = "red";
   document.getElementById("selectWorkRow").style.color = "white"
   document.getElementById("showNameWork").innerHTML = namer.value
@@ -156,10 +133,22 @@ function selectFight(){
   check(b)
   if(b.building != "none") {
     document.getElementById("selectFight").disabled = true;
-
-  document.getElementById("selectWork").disabled = true
+  document.getElementById("selectWork").disabled = true;
+  namer.disabled = true;
 document.getElementById("selectFightRow").style.background = "red";
 document.getElementById("selectFightRow").style.color = "white"
 document.getElementById("showNameFight").innerHTML = namer.value
   }
+  }
+
+  function next() {
+    if(game.active == playerOne){
+      console.log('its player one')
+      playername.innerHTML = 'Player Two'
+      game.active = playerTwo
+    }
+    if(game.active == playerTwo){
+console.log(playerOne, playerTwo, game.active)
+populate()
+    }
   }

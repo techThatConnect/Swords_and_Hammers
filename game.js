@@ -300,7 +300,7 @@ let playerOne = {
     }
     
     
-    console.log(playerOne , playerTwo)
+
     
     }
   
@@ -325,7 +325,7 @@ let playerOne = {
     
    
   populate()
-  console.log(playerOne , game.active) 
+next()
 
    }
   

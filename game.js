@@ -304,6 +304,9 @@ let playerOne = {
     
     }
   
+    function settest() {
+
+   
     
   buildFighter(playerOne, 'brogan')
   buildFighter(playerOne, 'john')
@@ -316,16 +319,21 @@ let playerOne = {
   buildWorker(playerOne, 'dude')
   buildWorker(playerOne, 'man')
   buildWorker(playerOne, 'bro')
+
+
+
+  buildWorker(playerTwo, 'billy')
+  buildWorker(playerTwo, 'bob')
+
+  buildFighter(playerTwo, 'chad')
+  buildFighter(playerTwo, 'Gorloc_the_distroyer')
   console.log(playerOne , game.active)
+    }
   
   function runtest() {
-  
-  battlePrep(playerOne)
-  battlePrep(playerTwo)
-    
-   
+  settest() 
   populate()
-next()
+
 
    }
   

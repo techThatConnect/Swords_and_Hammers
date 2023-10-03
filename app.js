@@ -99,14 +99,13 @@ function populate(){
   document.getElementById("selectFightRow").style.removeProperty('background')
 document.getElementById("selectFightRow").style.color = "black"
 document.getElementById("showNameFight").innerHTML = ''
+workerList.innerHTML = ''
+fightList.innerHTML = ''
  popWork()
  popFight()
                                    
 }
 
-function summary() {
-  
-}
 
 function selectWork() {
   let a = namer.value
@@ -146,9 +145,42 @@ document.getElementById("showNameFight").innerHTML = namer.value
       console.log('its player one')
       playername.innerHTML = 'Player Two'
       game.active = playerTwo
+      populate()
     }
-    if(game.active == playerTwo){
+    else{
 console.log(playerOne, playerTwo, game.active)
-populate()
+battlePrep(playerOne)
+battlePrep(playerTwo)
+battle()
+summary()
+playername.innerHTML = 'Player One'
+game.active = playerOne
+console.log(playerOne, playerTwo, game.active)
     }
+  }
+
+  function summary() {
+ let table = document.createElement("table")
+
+  let play1 = document.createElement("td")
+    let p1title = document.createElement("tr")
+    p1title.innerHTML = 'Player One';
+    let play1build = document.createElement("tr")
+    play1build.innerHTML = playerOne.building.name
+
+  let play2 = document.createElement("td")
+    let play2build = document.createElement("tr")
+    play2build.innerHTML = playerTwo.building.name
+
+  let total = document.createElement("td")
+    let space = document.createElement("tr")
+
+    document.getElementById('summary').appendChild(table)
+    table.appendChild(play1)
+    table.appendChild(play2)
+    table.appendChild(total)
+    play1.appendChild(p1title)
+    play1.appendChild(play1build)
+    play2.appendChild(play2build)
+    table.appendChild(space)
   }

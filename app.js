@@ -149,15 +149,17 @@ document.getElementById("showNameFight").innerHTML = namer.value
     }
     else{
 console.log(playerOne, playerTwo, game.active)
-
+goldWorkers()
+buildUnit()
 battlePrep(playerOne)
 battlePrep(playerTwo)
-
 battle()
-
+isWin()
+sacWorkers()
 summary()
 playername.innerHTML = 'Player One'
 game.active = playerOne
+populate()
 console.log(playerOne, playerTwo, game.active)
     }
   }
@@ -165,11 +167,21 @@ console.log(playerOne, playerTwo, game.active)
   function summary() {
  let table = document.createElement("table")
 
+ let subject = document.createElement("td")
+ let subjecttitle = document.createElement("tr") 
+ subjecttitle.innerHTML = 'Description'
+ let playerbuilding = document.createElement("tr")
+ playerbuilding.innerHTML = 'Unit Building'
+ let playerattack = document.createElement("tr")
+ playerattack.innerHTML = 'Attack Power'
+
   let play1 = document.createElement("td")
     let p1title = document.createElement("tr")
     p1title.innerHTML = 'Player One';
     let play1build = document.createElement("tr")
-    play1build.innerHTML = playerOne.building.name
+    play1build.innerHTML = 'type ' + playerOne.building.type +  ' name ' + playerOne.building.name
+    let play1attpow = document.createElement("tr")
+    play1attpow.innerHTML = playerOne.totalAttack
 
   let play2 = document.createElement("td")
     let play2build = document.createElement("tr")
@@ -179,11 +191,16 @@ console.log(playerOne, playerTwo, game.active)
     let space = document.createElement("tr")
 
     document.getElementById('summary').appendChild(table)
+    table.appendChild(subject)
     table.appendChild(play1)
     table.appendChild(play2)
     table.appendChild(total)
+    subject.appendChild(subjecttitle)
+    subject.appendChild(playerbuilding)
+    subject.appendChild(playerattack)
     play1.appendChild(p1title)
     play1.appendChild(play1build)
+    play1.appendChild(play1attpow)
     play2.appendChild(play2build)
     table.appendChild(space)
   }

@@ -45,35 +45,22 @@ let playerOne = {
   function checkName(player , type,  name){
     
     if(type == 'workers'){
-      
-    for(let test of player.workers){
-      
-      if(test.name == name){
-        return 'false'
+      for(let d = 0; d < player.workers.length; d++){
+        if(player.workers[d].name == name){
+          return 'false'
         }
-      else{
-           return 'true'
       }
-      }
+      
     }
     
     if(type == "fighters"){
-      for(let test of player.fighters){
-  
-      if(test.name == name){
-  
-        return 'false'
-  
-        }
-  
-      else{
-  
-           return 'true'
-  
-      }
-  
+      for(let e = 0; e < player.fighters.length; e++){
+          if(player.fighters[e].name == name){
+            return 'false'
+          }
       }
      } 
+
     }
   
   function checkGold(player , cost) {
@@ -85,7 +72,7 @@ let playerOne = {
       }
     else
     {
-      
+      player.gold = player.gold + cost;
     return 'true'
         }
     }
@@ -296,6 +283,76 @@ let playerOne = {
     
 
     
+    }
+
+    function goldWorkers() {
+      for(let a =  0; a < playerOne.workers.length; a++){
+        if(playerOne.workers[a].action == 'gold'){
+          playerOne.gold++
+        }
+      }
+
+      for(let b =  0; b < playerTwo.workers.length; b++){
+        if(playerTwo.workers[b].action == 'gold'){
+          playerTwo.gold++
+        }
+      }
+console.log(playerOne, playerTwo)
+    }
+
+    function sacWorkers() {
+      for(let a =  0; a < playerOne.workers.length; a++){
+        if(playerOne.workers[a].action == 'sac'){
+          if(playerOne.hp < 20){
+            playerOne.hp++
+          }
+        }
+      }
+
+      for(let b =  0; b < playerTwo.workers.length; b++){
+        if(playerTwo.workers[b].action == 'sac'){
+          if(playerTwo.hp < 20){
+            playerTwo.hp++
+          }
+        }
+      }
+      console.log(playerOne, playerTwo)
+    }
+
+    function buildUnit() {
+      if(playerOne.building != 'none'){
+        if(playerOne.building.type == 'workers'){
+          playerOne.gold = playerOne.gold - playerOne.building.cost
+          playerOne.workers.push(playerOne.building)
+          playerOne.building = 'none'
+        }
+       if(playerOne.building.type == 'fighters'){
+        playerOne.gold = playerOne.gold - playerOne.building.cost
+        playerOne.fighters.push(playerOne.building)
+          playerOne.building = 'none'
+       }
+      }
+      if(playerTwo.building != 'none'){
+        if(playerTwo.building.type == 'workers'){
+          playerTwo.gold = playerTwo.gold - playerTwo.building.cost
+          playerTwo.workers.push(playerTwo.building)
+          playerTwo.building = 'none'
+        }
+      if(playerTwo.building.type == 'fighters'){
+        playerTwo.gold = playerTwo.gold - playerTwo.building.cost
+        playerTwo.fighters.push(playerTwo.building)
+        playerTwo.building = 'none'
+      }
+      }
+    }
+
+    function isWin() {
+      if(playerOne.hp <= 0){
+        console.log('player Two wins')
+      }
+      if(playerTwo.hp <= 0){
+        console.log('player One wins')
+      }
     }
   
     function settest() {

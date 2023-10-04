@@ -256,20 +256,16 @@ let playerOne = {
       playerTwo.graveyard.push(playerTwo.fighters[a])
   playerTwo.fighters.splice(a , 1)
       deaths ++
-        }
-      }
-      
-      for(let b = 0; b < deaths; b++)
-      {
+      for(let b = 0; b < playerOne.fighters.length; b++) {
+        console.log('hi')
         if(playerOne.fighters[b].action == 'attack'){
-      playerOne.graveyard.push(playerOne.fighters[b])
-          playerOne.fighters.splice(b , 1)
-          
-          }
+          playerOne.graveyard.push(playerOne.fighters[b])
+              playerOne.fighters.splice(b , 1)
+              
+              }
+      }
         }
-  
-    
-    
+      } 
     }
     
     
@@ -277,26 +273,24 @@ let playerOne = {
     playerOne.hp = playerOne.hp - p2damage
       let deaths = 0
       for(let c = 0; c < playerOne.fighters.length; c++){
-        if(playerOne.fighters[c].action == "defend")
-        playerOne.graveyard.push(playerOne.fighters[c])
-  playerOne.fighters.splice(c , 1)
-        deaths++
-        }
-     
-      for(let b = 0; b < deaths; b++) {
-  if(playerTwo.fighters.length > 0) {
-        if(playerTwo.fighters[b].action == 'attack'){
-  
-      playerTwo.graveyard.push(playerTwo.fighters[b])
-  
-          playerTwo.fighters.splice(b , 1)
-  
-         
-  
-          }
-        }
-        }
-      
+        if(playerOne.fighters[c].action == "defend"){
+          playerOne.graveyard.push(playerOne.fighters[c])
+          playerOne.fighters.splice(c , 1)
+                deaths++
+                for(let b = 0; b < playerTwo.fighters.length; b++) {
+                  console.log('hi')
+                  if(playerTwo.fighters[b].action == 'attack'){
+          
+                    playerTwo.graveyard.push(playerTwo.fighters[b])
+                
+                        playerTwo.fighters.splice(b , 1)
+                
+                       
+                
+                        }
+                }
+        } 
+        }  
     }
     
     
@@ -333,7 +327,7 @@ let playerOne = {
   function runtest() {
   settest() 
   populate()
-
+console.log(playerTwo)
 
    }
   

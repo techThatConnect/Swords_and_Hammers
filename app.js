@@ -142,16 +142,19 @@ document.getElementById("showNameFight").innerHTML = namer.value
 
   function next() {
     if(game.active == playerOne){
-      console.log('its player one')
+      console.log(playerOne, playerTwo)
       playername.innerHTML = 'Player Two'
       game.active = playerTwo
       populate()
     }
     else{
 console.log(playerOne, playerTwo, game.active)
+
 battlePrep(playerOne)
 battlePrep(playerTwo)
+
 battle()
+
 summary()
 playername.innerHTML = 'Player One'
 game.active = playerOne

@@ -305,6 +305,8 @@ console.log(playerOne, playerTwo)
         if(playerOne.workers[a].action == 'sac'){
           if(playerOne.hp < 20){
             playerOne.hp++
+            playerOne.graveyard.push(playerOne.workers[a])
+            playerOne.workers.splice(a , 1)
           }
         }
       }
@@ -313,6 +315,8 @@ console.log(playerOne, playerTwo)
         if(playerTwo.workers[b].action == 'sac'){
           if(playerTwo.hp < 20){
             playerTwo.hp++
+            playerTwo.graveyard.push(playerTwo.workers[b])
+            playerTwo.workers.splice(b , 1)
           }
         }
       }
@@ -356,28 +360,8 @@ console.log(playerOne, playerTwo)
     }
   
     function settest() {
-
-   
-    
-  buildFighter(playerOne, 'brogan')
-  buildFighter(playerOne, 'john')
-  buildFighter(playerOne, 'bob')
-  
-  
-   
-  
-  
-  buildWorker(playerOne, 'dude')
-  buildWorker(playerOne, 'man')
-  buildWorker(playerOne, 'bro')
-
-
-
-  buildWorker(playerTwo, 'billy')
-  buildWorker(playerTwo, 'bob')
-
-  buildFighter(playerTwo, 'chad')
-  buildFighter(playerTwo, 'Gorloc_the_distroyer')
+  buildWorker(playerOne, 'John')
+  buildWorker(playerTwo, 'John')
   console.log(playerOne , game.active)
     }
   

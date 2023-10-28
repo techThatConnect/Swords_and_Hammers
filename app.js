@@ -107,6 +107,7 @@ fightList.innerHTML = ''
 }
 
 
+
 function selectWork() {
   let a = namer.value
   let b = game.active
@@ -114,15 +115,35 @@ function selectWork() {
   check(b)
   
   if(b.building != "none") {
+    
+   let cancel = document.createElement("button")
+cancel.addEventListener("click" , function () {
+  cancel.remove
+  player = game.active
+  game.p1Select = player.building
+  player.building = 'none'
+  document.getElementById("selectFight").disabled = false;
+  document.getElementById("selectWork").disabled = false;
+  namer.disabled = false; 
+  document.getElementById("selectWorkRow").style.removeProperty('background')
+  document.getElementById("selectWorkRow").style.color = "black"
+  document.getElementById("showNameWork").innerHTML = ''
+   })
+cancel.innerHTML = 'cancel'
+   
+   
   document.getElementById("selectFight").disabled = true;
   document.getElementById("selectWork").disabled = true
   namer.disabled = true;
   document.getElementById("selectWorkRow").style.background = "red";
   document.getElementById("selectWorkRow").style.color = "white"
   document.getElementById("showNameWork").innerHTML = namer.value
+  document.getElementById("showNameWork").appendChild(cancel)
     }
   }
+ 
 
+  
 
 
 function selectFight(){
@@ -130,13 +151,30 @@ function selectFight(){
   let b = game.active
   selectBuild(b ,fighter , a)
   check(b)
+
+
   if(b.building != "none") {
+    let cancel = document.createElement("button")
+cancel.addEventListener("click" , function () {
+  cancel.remove
+  player = game.active
+  game.p1Select = player.building
+  player.building = 'none'
+  document.getElementById("selectFight").disabled = false;
+  document.getElementById("selectWork").disabled = false;
+  namer.disabled = false; 
+  document.getElementById("selectFightRow").style.removeProperty('background')
+  document.getElementById("selectFightRow").style.color = "black"
+  document.getElementById("showNameFight").innerHTML = ''
+})
+cancel.innerHTML = 'cancel'
     document.getElementById("selectFight").disabled = true;
   document.getElementById("selectWork").disabled = true;
   namer.disabled = true;
 document.getElementById("selectFightRow").style.background = "red";
 document.getElementById("selectFightRow").style.color = "white"
 document.getElementById("showNameFight").innerHTML = namer.value
+document.getElementById("showNameFight").appendChild(cancel)
   }
   }
 
@@ -190,6 +228,7 @@ console.log(playerOne, playerTwo, game.active)
   let total = document.createElement("td")
     let space = document.createElement("tr")
 
+    document.getElementById('summary').innerHTML = ''
     document.getElementById('summary').appendChild(table)
     table.appendChild(subject)
     table.appendChild(play1)

@@ -1,5 +1,27 @@
 h1 {
+  color: red;
   text-align: center;
+}
+
+button {
+  background-color: red;
+  color:#fff;
+  padding: 1rem;
+  border-radius: 15px;
+}
+
+.bar{
+ 
+  max-width: 90vw;
+  margin:auto
+}
+
+button:disabled{
+  background-color:  rgba(255, 0, 0, .45);
+}
+
+.next{
+  display: none;
 }
 
 input[type='checkbox'] { display: none; } 

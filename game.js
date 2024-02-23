@@ -95,7 +95,7 @@ let playerOne = {
       let testOne = checkName(player, type, name);
       let cost = game.p1Select.cost
       let testTwo = checkGold(player, cost);
-      console.log(testOne , testTwo)
+      
       if(testOne == 'true') {
         
       if(testTwo == 'true') {
@@ -103,7 +103,7 @@ let playerOne = {
         player.building = game.p1Select
         game.p1Select = 'none'
   
-         console.log(player, game)
+         
   
       }
   
@@ -115,7 +115,7 @@ let playerOne = {
   
         game.p1Select = 'none'
   
-         console.log(player, game)
+         
   
       }
         }
@@ -124,11 +124,11 @@ let playerOne = {
     if(player == playerTwo) {
       let name = game.p2Select.name
       let type = game.p2Select.type 
-      console.log(name, type)
+   
       let testOne = checkName(player, type, name);
       let cost = game.p2Select.cost
       let testTwo = checkGold(player, cost);
-      console.log(testOne , testTwo)
+     
   
       if(testOne == 'true') {
       if(testTwo == 'true') {
@@ -234,7 +234,7 @@ let playerOne = {
     console.log(p1damage, p2damage)
     
     
-    //if this possative its bcause playerOne as more attackers than playertwo has defenders
+    //if this possative its bcause playerOne has more attackers than playertwo has defenders
     if(p1damage >= 0){
     playerTwo.hp = playerTwo.hp - p1damage
       let deaths = 0 
@@ -362,13 +362,15 @@ console.log(playerOne, playerTwo)
     function settest() {
   buildWorker(playerOne, 'John')
   buildWorker(playerTwo, 'John')
-  console.log(playerOne , game.active)
+
     }
   
-  function runtest() {
+  function run() {
+    document.getElementById("next").style.display = "inline"
+    document.getElementById("start").style.display = "none"
   settest() 
   populate()
-console.log(playerTwo)
+
 
    }
   

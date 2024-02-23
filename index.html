@@ -8,17 +8,19 @@
 
 </head> 
 <body>
-  <nav id="bar">
-    <button onclick="runtest()">Start</button>
-    <button onclick="next()" id="next">Next</button>
+  <nav id="bar" class="bar">
+    <button class="start" onclick="run()" id="start">Start</button>
+    <button class="next" onclick="next()" id="next">Next</button>
+    <h1 id="playerName">Player One</h1>
+    <div id="summary"></div>
   </nav>
   
 
-    <h1 id="playerName">Player One</h1>
+    
 
-    <div id="summary"></div>
+    
 
-    <div class="wrap-collabsible"> <input id="collapsible3" class="toggle" type="checkbox"> <label for="collapsible3" class="lbl-toggle" tabindex="0">
+    <div class="wrap-collabsible"> <input id="collapsible3" class="toggle" type="checkbox"> <label for="collapsible3" class="lbl-toggle" tabindex="0"> 
       Castle
       
       </label><div class="collapsible-content"><div class="content-inner">
